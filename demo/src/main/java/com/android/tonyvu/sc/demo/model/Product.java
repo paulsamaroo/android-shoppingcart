@@ -1,5 +1,7 @@
 package com.android.tonyvu.sc.demo.model;
 
+import android.widget.ImageView;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -9,6 +11,7 @@ public class Product implements Saleable, Serializable {
     private static final long serialVersionUID = -4073256626483275668L;
 
     private int pId;
+    private ImageView pImg;
     private String pName;
     private BigDecimal pPrice;
     private String pDescription;
@@ -17,8 +20,9 @@ public class Product implements Saleable, Serializable {
         super();
     }
 
-    public Product(int pId, String pName, BigDecimal pPrice, String pDescription) {
+    public Product(int pId, ImageView pImg, String pName, BigDecimal pPrice, String pDescription) {
         setId(pId);
+        setImage(pImg);
         setName(pName);
         setPrice(pPrice);
         setDescription(pDescription);
@@ -36,6 +40,7 @@ public class Product implements Saleable, Serializable {
         final int prime = 31;
         int hash = 1;
         hash = hash * prime + pId;
+        hash = hash * prime + (pImg == null ? 0 : pImg.hashCode());
         hash = hash * prime + (pName == null ? 0 : pName.hashCode());
         hash = hash * prime + (pPrice == null ? 0 : pPrice.hashCode());
         hash = hash * prime + (pDescription == null ? 0 : pDescription.hashCode());
@@ -60,6 +65,10 @@ public class Product implements Saleable, Serializable {
     @Override
     public String getName() {
         return pName;
+    }
+
+    public void setImage(ImageView image){
+        this.pImg = image;
     }
 
     public void setPrice(BigDecimal price) {
