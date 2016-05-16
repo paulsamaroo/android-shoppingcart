@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ import com.android.tonyvu.sc.util.CartHelper;
 public class ProductActivity extends AppCompatActivity {
     private static final String TAG = "ProductActivity";
 
+    ImageView ivProductImg;
     TextView tvProductName;
     TextView tvProductDesc;
     Spinner spQuantity;
@@ -50,6 +52,7 @@ public class ProductActivity extends AppCompatActivity {
     }
 
     private void retrieveViews() {
+        ivProductImg = (ImageView)findViewById(R.id.ivProductImage);
         tvProductName = (TextView) findViewById(R.id.tvProductName);
         tvProductDesc = (TextView) findViewById(R.id.tvProductDesc);
         spQuantity = (Spinner) findViewById(R.id.spQuantity);
@@ -57,6 +60,7 @@ public class ProductActivity extends AppCompatActivity {
     }
 
     private void setProductProperties() {
+        ivProductImg.setImageResource(R.mipmap.puresoap);
         tvProductName.setText(product.getName());
         tvProductDesc.setText(product.getDescription());
     }
